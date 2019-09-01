@@ -13,6 +13,7 @@ namespace CoreSchool.Entities
         public string Country { get; set; }
         public string City { get; set; }
         public SchoolType Type { get; set; }
+        public Course[] Courses { get; set; }
         
 
         /* public School(string name, int yearEstablish)
