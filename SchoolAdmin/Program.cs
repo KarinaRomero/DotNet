@@ -10,7 +10,13 @@ namespace SchoolAdmin
             var school = new School("Howarts", 1983);
             school.Country = "Scotland";
             school.City = "Edinburgh";
-            Console.WriteLine("My school is " + school.Name);
+            school.Type = TypeSchool.Preescolar;
+
+            var school1 = new School("HowartsTWO", 1983, TypeSchool.Secundaria, city:"Scotland");
+
+            Console.WriteLine(school.ToString());
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine(school1.ToString());
         }
     }
 }
