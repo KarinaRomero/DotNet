@@ -1,6 +1,6 @@
 namespace CoreSchool.Entities
 {
-    public enum TypeSchool
+    public enum SchoolType
     {
         // 0, 1, 2
         Primaria, Secundaria, Preescolar

@@ -12,7 +12,7 @@ namespace CoreSchool.Entities
         public int YearEstablish { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
-        public TypeSchool Type { get; set; }
+        public SchoolType Type { get; set; }
         
 
         /* public School(string name, int yearEstablish)
@@ -22,7 +22,7 @@ namespace CoreSchool.Entities
         }
         */
         public School(string name, int yearEstablish) => (Name, YearEstablish) = (name, yearEstablish);
-        public School(string name, int yearEstablish, TypeSchool type, string country ="Default value", string city ="Default value")
+        public School(string name, int yearEstablish, SchoolType type, string country ="Default value", string city ="Default value")
         {
             (Name, YearEstablish) = (name, yearEstablish);
             Country = country;
