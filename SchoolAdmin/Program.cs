@@ -13,14 +13,14 @@ namespace SchoolAdmin
             var school = new School("HowartsTWO", 1983, SchoolType.Secundaria, city: "Scotland");
             // Adding courses to school
             school.Courses = new List<Course>(){
-                    new Course(){Name = "Languaje"},
-                    new Course(){Name = "Math"},
-                    new Course(){Name = "History"}
+                    new Course(){Name = "Languaje", Schedule = ScheduleType.Night},
+                    new Course(){Name = "Math", Schedule = ScheduleType.Night},
+                    new Course(){Name = "History", Schedule = ScheduleType.Morning}
             };
             // Adding one course more
-            school.Courses.Add(new Course(){Name = "Geography"});
+            school.Courses.Add(new Course(){Name = "Geography", Schedule = ScheduleType.Night});
             // Deleting 
-            school.Courses.Clear();
+            //school.Courses.Clear();
             // Creating range courses
             var otherCourses = new List<Course>(){
                     new Course(){Name = "Chemistry"},
@@ -40,6 +40,9 @@ namespace SchoolAdmin
             // Deleting one course by Predicate exponig the logic delegate    
             Predicate<Course> deleteLogic = DeleteCourse;
             school.Courses.RemoveAll(deleteLogic);
+            // Deleting by lambda expressions
+            school.Courses.RemoveAll(delegate(Course cur) {return cur.Name == "Physics";});
+            school.Courses.RemoveAll((Course cur) => cur.Schedule == ScheduleType.Morning);
 
 
             WriteLine("----------------------School------------------");
@@ -48,6 +51,7 @@ namespace SchoolAdmin
             PrintCourse(school);
 
         }
+        ///<Sumary>
         private static bool DeleteCourse(Course course)
         {
             return course.Name == "Athletics";
