@@ -1,10 +1,12 @@
 
+using System;
 using System.Collections.Generic;
 
 namespace CoreSchool.Entities
 {
-    class School
+    public class School
     {
+        public string UniqueId { get; set; } = Guid.NewGuid().ToString();
         private string name;
         public string Name
         {
@@ -16,16 +18,9 @@ namespace CoreSchool.Entities
         public string City { get; set; }
         public SchoolType Type { get; set; }
         public List<Course> Courses { get; set; }
-        
 
-        /* public School(string name, int yearEstablish)
-        {
-            this.name = name;
-            this.YearEstablish = yearEstablish;
-        }
-        */
         public School(string name, int yearEstablish) => (Name, YearEstablish) = (name, yearEstablish);
-        public School(string name, int yearEstablish, SchoolType type, string country ="Default value", string city ="Default value")
+        public School(string name, int yearEstablish, SchoolType type, string country = "Default value", string city = "Default value")
         {
             (Name, YearEstablish) = (name, yearEstablish);
             Country = country;
